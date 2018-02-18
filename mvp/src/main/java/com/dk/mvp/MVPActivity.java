@@ -1,12 +1,16 @@
 package com.dk.mvp;
 
 import android.os.Bundle;
+import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.TextView;
 
 import com.dk.mvp.features.stories.StoriesContract;
 import com.dk.core.model.DataSourceA;
+
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.InstanceState;
 
 import javax.inject.Inject;
 
@@ -16,6 +20,7 @@ import dagger.android.support.DaggerAppCompatActivity;
  * Created by dkakuli on 15/02/2018.
  */
 
+@EActivity
 public class MVPActivity extends DaggerAppCompatActivity implements StoriesContract.View {
 
     private TextView mTextView;

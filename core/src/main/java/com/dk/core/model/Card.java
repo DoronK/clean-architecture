@@ -1,9 +1,12 @@
 package com.dk.core.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Card {
+public class Card implements Parcelable {
 
     @SerializedName("title")
     @Expose
@@ -29,6 +32,7 @@ public class Card {
     }
 
 
+
     /**
      * *******************************************************************************
      * GETTERS
@@ -46,4 +50,34 @@ public class Card {
     public String getImageUrl() {
         return mImageUrl;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.mTitle);
+        dest.writeString(this.mSubtitle);
+        dest.writeString(this.mImageUrl);
+    }
+
+    protected Card(Parcel in) {
+        this.mTitle = in.readString();
+        this.mSubtitle = in.readString();
+        this.mImageUrl = in.readString();
+    }
+
+    public static final Parcelable.Creator<Card> CREATOR = new Parcelable.Creator<Card>() {
+        @Override
+        public Card createFromParcel(Parcel source) {
+            return new Card(source);
+        }
+
+        @Override
+        public Card[] newArray(int size) {
+            return new Card[size];
+        }
+    };
 }

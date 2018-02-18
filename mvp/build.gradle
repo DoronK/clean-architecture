@@ -27,6 +27,7 @@ ext {
     epressoVersion = '2.2.2'
     expressoRunnerVersion = '0.4'
     daggerVersion = '2.14.1'
+    supportAnnotation='4.0.0'
 }
 
 dependencies {
@@ -43,6 +44,10 @@ dependencies {
     kapt "com.google.dagger:dagger-compiler:$daggerVersion"
     implementation "com.google.dagger:dagger-android:$daggerVersion"
     implementation "com.google.dagger:dagger-android-support:$daggerVersion"
+
+
+    annotationProcessor "org.androidannotations:androidannotations:$supportAnnotation"
+    compile "org.androidannotations:androidannotations-api:$supportAnnotation"
 
     compile project(path: ':core')
 }
