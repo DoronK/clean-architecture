@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.chegg.core.test", appContext.getPackageName());
+        assertEquals("com.dk.core.test", appContext.getPackageName());
     }
 }

@@ -1,4 +1,4 @@
-package com.chegg.mvvm;
+package com.dk.mvvm;
 
 import org.junit.Test;
 

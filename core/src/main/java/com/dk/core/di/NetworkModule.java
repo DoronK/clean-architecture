@@ -15,7 +15,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 
 @Module
-public class ServerApiModule {
+public class NetworkModule {
 
 
     @Provides
@@ -29,7 +29,7 @@ public class ServerApiModule {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://com.chegg")
+                .baseUrl("http://com.dk")
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(okHttpClient)

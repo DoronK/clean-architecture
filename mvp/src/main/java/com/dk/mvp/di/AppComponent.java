@@ -1,7 +1,7 @@
 package com.dk.mvp.di;
 
+import com.dk.core.di.NetworkModule;
 import com.dk.mvp.MVPApplication;
-import com.dk.core.di.ServerApiModule;
 
 import javax.inject.Singleton;
 
@@ -11,7 +11,7 @@ import dagger.android.support.AndroidSupportInjectionModule;
 
 @Singleton
 @Component(modules = {AppModule.class,
-        ServerApiModule.class,
+        NetworkModule.class,
         AndroidSupportInjectionModule.class,
         BuildersModule.class
 })

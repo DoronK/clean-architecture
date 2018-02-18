@@ -1,4 +1,4 @@
-package com.chegg.mvvm;
+package com.dk.mvvm;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.chegg.mvvm.test", appContext.getPackageName());
+        assertEquals("com.dk.mvvm.test", appContext.getPackageName());
     }
 }
