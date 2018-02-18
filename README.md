@@ -1,6 +1,6 @@
-# clean-architecture
-##### This repository contains several samples for implementing clean architecture in Android.
-### Stable samples:
+# Android Clean Architecture
+### This repository demonstrates different strategies for implementing a clean architecture Android app.
+### The project implements the same app with different architectures.
 
 | Sample | Description |
 | ------------- | ------------- |
