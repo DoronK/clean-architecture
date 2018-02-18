@@ -39,12 +39,6 @@ public class MVPActivity extends DaggerAppCompatActivity implements StoriesContr
     }
 
 
-    //region StoriesContract.View
-    @Override
-    public void setPresenter(StoriesContract.Presenter presenter) {
-        storiesPresenterImpl = presenter;
-    }
-
     @Override
     public void onDataLoadFinished(DataSourceA dataSourceA) {
         mTextView.setText(dataSourceA.getAllStories().toString());

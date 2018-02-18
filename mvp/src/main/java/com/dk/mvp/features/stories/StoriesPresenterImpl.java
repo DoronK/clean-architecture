@@ -28,11 +28,6 @@ public class StoriesPresenterImpl implements StoriesContract.Presenter {
 
 
     @Override
-    public void setView(StoriesContract.View view) {
-
-    }
-
-    @Override
     public void getAllStories() {
         storiesApi.getData()
                 .subscribeOn(Schedulers.io())
