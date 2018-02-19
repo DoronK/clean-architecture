@@ -1,6 +1,7 @@
 package com.dk.mvp.di;
 
 import com.dk.mvp.MVPActivity;
+import com.dk.mvp.MVPActivity_;
 import com.dk.mvp.features.stories.StoriesModule;
 
 import dagger.Module;
@@ -11,7 +12,7 @@ public abstract class BuildersModule {
 
 
     @ContributesAndroidInjector(modules = StoriesModule.class)
-    abstract MVPActivity bindMainActivity();
+    abstract MVPActivity_ bindMainActivity();
 
     // Add bindings for other sub-components here
 }

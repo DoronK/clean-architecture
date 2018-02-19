@@ -1,16 +1,19 @@
 package com.dk.mvp;
 
 import android.os.Bundle;
-import android.os.PersistableBundle;
 import android.support.annotation.Nullable;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
-import com.dk.mvp.features.stories.StoriesContract;
 import com.dk.core.model.DataSourceA;
+import com.dk.mvp.features.stories.StoriesContract;
 
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.InstanceState;
+import org.androidannotations.annotations.ViewById;
 
 import javax.inject.Inject;
 
@@ -20,33 +23,34 @@ import dagger.android.support.DaggerAppCompatActivity;
  * Created by dkakuli on 15/02/2018.
  */
 
-@EActivity
+@EActivity(R.layout.activity_main)
 public class MVPActivity extends DaggerAppCompatActivity implements StoriesContract.View {
 
-    private TextView mTextView;
+    @ViewById(R.id.data_textview)
+    TextView mTextView;
+
+    @InstanceState
+    DataSourceA dataSourceA;
 
     @Inject
     StoriesContract.Presenter storiesPresenterImpl;
 
-    @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    @AfterViews
+    void afterViews() {
+        mTextView.setText(dataSourceA != null ? dataSourceA.getAllStories().toString() : "");
+    }
 
-        //Building View
-        findViewById(R.id.get_stories_btn_id).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                storiesPresenterImpl.getAllStories();
-            }
-        });
-        mTextView = findViewById(R.id.data_textview);
+    @Click(R.id.get_stories_btn_id)
+    void onButtonClicked() {
+        storiesPresenterImpl.getAllStories();
+
     }
 
 
     //region StoriesContract.View
     @Override
     public void onDataLoadFinished(DataSourceA dataSourceA) {
+        this.dataSourceA = dataSourceA;
         mTextView.setText(dataSourceA.getAllStories().toString());
     }
     //endregion

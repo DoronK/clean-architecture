@@ -1,6 +1,7 @@
 package com.dk.mvp.features.stories;
 
 import com.dk.mvp.MVPActivity;
+import com.dk.mvp.MVPActivity_;
 
 import dagger.Module;
 import dagger.Provides;
@@ -25,7 +26,7 @@ public class StoriesModule {
     }
 
     @Provides
-    StoriesContract.View provideStoriesView(MVPActivity MVPActivity) {
+    StoriesContract.View provideStoriesView(MVPActivity_ MVPActivity) {
         return MVPActivity;
     }
 }
